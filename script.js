@@ -7,17 +7,17 @@ class Stopwatch {
     this.reset();
     this.print(this.times);
   }
-  reset() { // zerwowanie stopera
+  reset() { 
     this.times = {
       minutes: 0,
       seconds: 0,
       miliseconds: 0
     };
   }
-  print() { //wyswietlanie stopera
+  print() { 
     this.display.innerText = this.format(this.times);
   }
-  format(times) { // przygotowanie tekstu do wyswietlenia
+  format(times) { 
     return `${pad0(times.minutes)}:${pad0(times.seconds)}:${pad0(Math.floor(times.miliseconds))}`;
   }
   start() {
@@ -58,13 +58,16 @@ class Stopwatch {
         
     newLap.innerHTML = `${newLapArray.length + 1} lap : ${this.format(this.times)}`;
     lapList.appendChild(newLap);
-    console.log(newLapArray);
- }
+    //console.log(newLapArray);
+  }
   catchClear() {
-    const lapListClear = document.getElementById('results');
-    lapListClear.removeChild(results);
-    console.log
- }
+    const ArrayToClear = document.getElementById('results');
+    //const LapToClear = ArrayToClear.lastChild  
+    //console.log(LapToClear);
+    while (ArrayToClear.lastChild) {
+     ArrayToClear.removeChild(ArrayToClear.lastChild);
+    }
+  }
 }
 function pad0(value) {
   let result = value.toString();
