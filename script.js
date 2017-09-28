@@ -54,19 +54,19 @@ class Stopwatch {
   catch() { 
     const lapList = document.getElementById('results');
     const newLap = document.createElement('li');
-    const newLapArray = document.getElementsByTagName('li');
+    const newLapArray = lapList.getElementsByTagName('li');
         
     newLap.innerHTML = `${newLapArray.length + 1} lap : ${this.format(this.times)}`;
     lapList.appendChild(newLap);
     //console.log(newLapArray);
   }
   catchClear() {
-    const ArrayToClear = document.getElementById('results');
-    //const LapToClear = ArrayToClear.lastChild  
-    //console.log(LapToClear);
-    while (ArrayToClear.lastChild) {
-     ArrayToClear.removeChild(ArrayToClear.lastChild);
-    }
+    const arrayToClear = document.getElementById('results');
+    arrayToClear.innerHTML = '';
+    //const lapToClear = arrayToClear.lastChild  
+    //console.log(lapToClear);
+    //while (arrayToClear.lastChild) {
+    //arrayToClear.removeChild(arrayToClear.lastChild)};
   }
 }
 function pad0(value) {
